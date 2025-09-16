@@ -16,6 +16,7 @@ export default function AppLayout({ user, header, children }) {
                 { name: 'Fleets', route: 'fleets.index' },
                 { name: 'Shipments', route: 'shipments.index' },
                 { name: 'Check-Ins', route: 'check-ins.index' },
+                { name: 'Reports', route: 'reports.index' },
             ];
         } else if (user.role === 'armada') {
             return [

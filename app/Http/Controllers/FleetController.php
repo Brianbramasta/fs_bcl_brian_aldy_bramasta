@@ -16,7 +16,7 @@ class FleetController extends Controller
         $query = Fleet::query();
 
         // Search by fleet number or vehicle type
-        if ($request->has('search') && $request->search) {
+        if ($request->filled('search')) {
             $query->where(function ($q) use ($request) {
                 $q->where('fleet_number', 'like', '%' . $request->search . '%')
                   ->orWhere('vehicle_type', 'like', '%' . $request->search . '%');
@@ -24,12 +24,12 @@ class FleetController extends Controller
         }
 
         // Filter by availability
-        if ($request->has('availability') && $request->availability) {
+        if ($request->filled('availability')) {
             $query->where('availability', $request->availability);
         }
 
         // Filter by vehicle type
-        if ($request->has('vehicle_type') && $request->vehicle_type) {
+        if ($request->filled('vehicle_type')) {
             $query->where('vehicle_type', $request->vehicle_type);
         }
 

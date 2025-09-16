@@ -11,14 +11,14 @@ export default function FleetsIndex({ auth, fleets, filters, vehicleTypes }) {
 
     const handleSearch = (searchTerm) => {
         const newData = { ...data, search: searchTerm };
-        setData('search', searchTerm);
+        setData(newData);
         get(route('fleets.index', newData));
     };
 
     const handleFilter = (e) => {
         const { name, value } = e.target;
         const newData = { ...data, [name]: value };
-        setData(name, value);
+        setData(newData);
         get(route('fleets.index', newData));
     };
 
