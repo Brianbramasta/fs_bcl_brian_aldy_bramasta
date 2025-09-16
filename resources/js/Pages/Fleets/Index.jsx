@@ -23,12 +23,13 @@ export default function FleetsIndex({ auth, fleets, filters, vehicleTypes }) {
     };
 
     const clearFilters = () => {
-        setData({
+        const clearedData = {
             search: '',
             availability: '',
             vehicle_type: '',
-        });
-        get(route('fleets.index'));
+        };
+        setData(clearedData);
+        get(route('fleets.index', clearedData));
     };
 
     return (
@@ -59,18 +60,18 @@ export default function FleetsIndex({ auth, fleets, filters, vehicleTypes }) {
                                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                                     <div className="md:col-span-2">
                                         <SearchBar
-                                            placeholder="Search by fleet number or vehicle type..."
-                                            onSearch={handleSearch}
-                                            initialValue={filters.search || ''}
-                                        />
+                            placeholder="Search by fleet number or vehicle type..."
+                            onSearch={handleSearch}
+                            initialValue={filters.search || ''}
+                        />
                                     </div>
                                     <div>
                                         <select
-                                            name="availability"
-                                            value={data.availability}
-                                            onChange={handleFilter}
-                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        >
+                            name="availability"
+                            value={data.availability}
+                            onChange={handleFilter}
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        >
                                             <option value="">All Availability</option>
                                             <option value="available">Available</option>
                                             <option value="unavailable">Unavailable</option>
@@ -78,11 +79,11 @@ export default function FleetsIndex({ auth, fleets, filters, vehicleTypes }) {
                                     </div>
                                     <div>
                                         <select
-                                            name="vehicle_type"
-                                            value={data.vehicle_type}
-                                            onChange={handleFilter}
-                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        >
+                            name="vehicle_type"
+                            value={data.vehicle_type}
+                            onChange={handleFilter}
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        >
                                             <option value="">All Vehicle Types</option>
                                             {vehicleTypes.map((type) => (
                                                 <option key={type} value={type}>{type}</option>
