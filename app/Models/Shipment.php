@@ -19,6 +19,7 @@ class Shipment extends Model
         'shipment_date',
         'origin_location',
         'destination_location',
+        'item_details',
         'status',
         'fleet_id',
         'customer_id',

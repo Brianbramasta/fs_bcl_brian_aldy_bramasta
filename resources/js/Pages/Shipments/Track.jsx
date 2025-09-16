@@ -72,6 +72,10 @@ export default function ShipmentsTrack({ auth, shipment, error }) {
                                                     <span>{shipment.destination_location}</span>
                                                 </div>
                                                 <div className="flex">
+                                                    <span className="font-medium w-40">Item Details:</span>
+                                                    <span>{shipment.item_details}</span>
+                                                </div>
+                                                <div className="flex">
                                                     <span className="font-medium w-40">Status:</span>
                                                     <span>
                                                         <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${

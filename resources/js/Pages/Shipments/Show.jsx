@@ -34,6 +34,10 @@ export default function ShipmentsShow({ auth, shipment }) {
                                             <p className="ml-2 inline">{shipment.destination_location}</p>
                                         </div>
                                         <div>
+                                            <label className="font-medium">Item Details:</label>
+                                            <p className="ml-2 inline">{shipment.item_details}</p>
+                                        </div>
+                                        <div>
                                             <label className="font-medium">Status:</label>
                                             <span className={`ml-2 px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                                                 shipment.status === 'pending'

@@ -68,6 +68,7 @@ class ShipmentController extends Controller
             'shipment_date' => 'required|date|after:today',
             'origin_location' => 'required',
             'destination_location' => 'required',
+            'item_details' => 'required|string|max:1000',
             'fleet_id' => 'required|exists:fleets,id',
         ]);
 
@@ -77,6 +78,7 @@ class ShipmentController extends Controller
             'shipment_date' => $request->shipment_date,
             'origin_location' => $request->origin_location,
             'destination_location' => $request->destination_location,
+            'item_details' => $request->item_details,
             'fleet_id' => $request->fleet_id,
             'customer_id' => auth()->id(),
             'status' => 'pending',
@@ -122,6 +124,7 @@ class ShipmentController extends Controller
             'shipment_date' => 'required|date',
             'origin_location' => 'required',
             'destination_location' => 'required',
+            'item_details' => 'required|string|max:1000',
             'fleet_id' => 'required|exists:fleets,id',
         ]);
 

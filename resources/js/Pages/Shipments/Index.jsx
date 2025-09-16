@@ -10,14 +10,16 @@ export default function ShipmentsIndex({ auth, shipments, fleets, filters }) {
     });
 
     const handleSearch = (searchTerm) => {
+        const newData = { ...data, search: searchTerm };
         setData('search', searchTerm);
-        get(route('shipments.index', { ...data, search: searchTerm }));
+        get(route('shipments.index', newData));
     };
 
     const handleFilter = (e) => {
         const { name, value } = e.target;
+        const newData = { ...data, [name]: value };
         setData(name, value);
-        get(route('shipments.index', { ...data, [name]: value }));
+        get(route('shipments.index', newData));
     };
 
     const clearFilters = () => {

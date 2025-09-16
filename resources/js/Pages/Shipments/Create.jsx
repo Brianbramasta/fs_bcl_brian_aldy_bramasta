@@ -7,6 +7,7 @@ export default function ShipmentsCreate({ auth, fleets }) {
         shipment_date: '',
         origin_location: '',
         destination_location: '',
+        item_details: '',
         fleet_id: '',
     });
 
@@ -85,6 +86,22 @@ export default function ShipmentsCreate({ auth, fleets }) {
                                         required
                                     />
                                     {errors.destination_location && <div className="text-red-500 text-xs italic mt-2">{errors.destination_location}</div>}
+                                </div>
+
+                                <div className="mb-4">
+                                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="item_details">
+                                        Item Details
+                                    </label>
+                                    <textarea
+                                        id="item_details"
+                                        value={data.item_details}
+                                        onChange={(e) => setData('item_details', e.target.value)}
+                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        rows="4"
+                                        placeholder="Describe the items being shipped..."
+                                        required
+                                    />
+                                    {errors.item_details && <div className="text-red-500 text-xs italic mt-2">{errors.item_details}</div>}
                                 </div>
 
                                 <div className="mb-4">

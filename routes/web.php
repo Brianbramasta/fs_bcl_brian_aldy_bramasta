@@ -33,8 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('fleets', FleetController::class);
 
     // Shipment routes
-    Route::resource('shipments', ShipmentController::class);
     Route::get('/shipments/track', [ShipmentController::class, 'track'])->name('shipments.track');
+    Route::resource('shipments', ShipmentController::class);
 
     // Check-in routes
     Route::resource('check-ins', CheckInController::class);
